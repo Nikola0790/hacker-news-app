@@ -1,35 +1,17 @@
 import React, { useEffect, useState } from "react";
 import { getId } from "../../services/urlForId/forId";
+import { Story } from "./Story";
 
 const NewsList = () => {
   const [id, setId] = useState([]);
 
   useEffect(() => {
-    getId().then((item) => {
-      setId(item);
-    });
+    getId().then((item) => setId(item));
   }, []);
-  console.log(id);
 
-  if (id.length === 0) {
-    return <p>{"LOADING"}</p>;
-  }
-
-  return (
-    <div>
-      {id.map((data, index) => {
-        console.log(data);
-        return (
-          <div key={index}>
-            <p>
-              {index + 1}. {data.title}
-            </p>
-            <p>{data.type}</p>
-          </div>
-        );
-      })}
-    </div>
-  );
+  return id.map((storyId, index) => (
+    <Story key={storyId} storyId={storyId} num={index} />
+  ));
 };
 
 export default NewsList;
