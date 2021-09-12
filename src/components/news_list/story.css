@@ -1,0 +1,10 @@
+a,
+span {
+  text-decoration: none;
+  color: #ea5422;
+  font-weight: bold;
+}
+span {
+  color: #ea5422;
+  font-weight: normal;
+}
